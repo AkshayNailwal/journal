@@ -234,9 +234,9 @@ while True:
             if rf["journals"]:
                 for count,jour in enumerate(rf["journal_entries"]):
                     print("{}. {}".format(count,jour))
-                journal_no=int(input("[Info] Enter a integer value\n"))
+                journal_no=input("[Info] Enter a journal index value\n")
                 try:
-                    journal_data = rf["journals"][journal_no]
+                    journal_data = rf["journals"][int(journal_no)]
                     print(journal_data)
                     time.sleep(1)
                 except:
@@ -257,6 +257,7 @@ while True:
             continue
 
         elif int(input_entries)==2:
+            print("[Info] Write Journal data here")
             print("[Info] Press ENTER twice to save")
             journal_text = []
             while True:
@@ -268,7 +269,7 @@ while True:
             journal_text = "\n".join(journal_text)
             rf=user_data[user_data_index]
             rf["journals"].insert(0,journal_text)
-            user_data[user_data_index]["journal_entries"].insert(0,str(time.strftime('%Y-%m-%d %H:%M %p',time.gmtime())) +"  "+journal_text[:50])
+            user_data[user_data_index]["journal_entries"].insert(0,str(time.strftime('%a, %d %b %H:%M %p',time.gmtime())) +"  "+journal_text[:50])
             if journal_count==50:
                 user_data[user_data_index]["journals"].pop()
                 user_data[user_data_index]["journal_entries"].pop()
