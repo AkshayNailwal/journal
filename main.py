@@ -241,6 +241,7 @@ while True:
                     time.sleep(1)
                 except:
                     print("[Warning] Wrong input")
+                    print("[Info] Press Enter to exit")
                 if input()==False:
                     continue
                     if platform_flag==0:
@@ -304,6 +305,7 @@ while True:
 
         else:
             print("[Warning] Wrong Input")
+            print("[Info] press Enter to exit")
             time.sleep(1)
             if platform_flag==0:
                 os.system("clear")
