@@ -4,13 +4,14 @@ Dependencies:-
 
 1. Python3 (v3.5 or above)
 
-2. If using Linux machine
-    apt-get install build-essential libssl-dev libffi-dev python3-dev
-    cryptography
-3. If using Windows machine
-    cryptography
+2. If using Linux machine, run commands
+    -> apt-get install build-essential libssl-dev libffi-dev python3-dev
+    -> pip3 install cryptography
+3. If using Windows machine, run command
+    -> pip install cryptography
 
 Instructions to run the app:-
+***Make sure to run app as administrator / superuser to avoid conflicts***
 
 1. unzip the folder
 2. Open Terminal in the same directory
@@ -27,7 +28,7 @@ In-App Instructions:-
 
 2. Next step will be to enter data as requested by the app
 
-    **Notes
+    **Notes**
         -> put valid emails (cannot be empty)
         -> put valid passwords (cannot be empty)
 
@@ -37,8 +38,8 @@ In-App Instructions:-
     -> 3. Logout
     -> 4. Exit
 
-    **Notes
-    -> If a screen appears to be just hanged press enter two three time to continue
+    **Notes**
+    -> If a screen appears to be just hanged press enter two-three time to continue
     -> All the other in app instructions will be presented on screen
 
 4. Maximum users allowed are 10 ( As of what i was not sure about)

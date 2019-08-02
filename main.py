@@ -6,6 +6,7 @@ from collections import deque
 import json
 import time
 
+#---------- Key Generation ------------
 if "keys.enc" not in os.listdir("./"):
     KEY = Fernet.generate_key()
     # print(key)
@@ -17,6 +18,7 @@ KEY = open("keys.enc","r").read()
 KEY=bytes(KEY.split("'")[1],"utf-8")
 cipher_suite = Fernet(KEY)
 
+#--------- Main Loop ----------
 while True:
     platform_name = os.name
     platform_flag=None
@@ -28,14 +30,15 @@ while True:
         platform_flag=0
     print("-----------Working on {}------------".format(platform))
 
-    # Initial user inputs
+    #----------- Initial user inputs -------------
     n=input("1.Login           2.Signup            3.Exit\n")
 
+    #------------ Clear Console -------------
     if platform_flag==0:
         os.system("clear")
     else:
         os.system("cls")
-
+    #--- globals ---
     email=""
     password=""
     data_dict={}
@@ -50,7 +53,7 @@ while True:
         else:
             os.system("cls")
         continue
-    
+    #-------------- Login Part ----------------
     if int(n)==1:
         email=input("Email:-  ")
         password=getpass("Password:-    ")
@@ -71,7 +74,7 @@ while True:
             else:
                 os.system("cls")
             continue
-
+    #--------------- Signup Part ---------------
     elif int(n)==2:
         username=input("Enter username:-    ")
         email=input("Enter Email:-  ")
@@ -166,8 +169,10 @@ while True:
             with open(user_path+"/users.enc","w") as file:
                 file.write(str(encrypted_userdata))
             print("[Info] Created user successfully.")
+
+    #------------ Exit option ----------------
     elif int(n)==3:
-        print("[Info] Exiting ...")
+        print(" Exiting ...")
         time.sleep(1)
         if platform_flag==0:
             os.system("clear")
@@ -183,6 +188,7 @@ while True:
             os.system("cls")
         sys.exit()
 
+    #--------------- After Login/ Signup ----------------
     time.sleep(1)
     if platform_flag==0:
         os.system("clear")
@@ -214,6 +220,8 @@ while True:
     if user_data is None and n==1:
         print("[Warning] No User exists with this Email or Password")
         continue
+
+    #------------- Dashboard after login ----------------
     while True:
         input_entries = input("1.Show all Entries               2.Create new Entry                   3.Logout                 4.Exit\n")
 
@@ -229,6 +237,8 @@ while True:
             else:
                 os.system("cls")
             continue
+        
+        #------------------- List all entries by user ------------------
         if int(input_entries)==1:
             rf = user_data[user_data_index]
             if rf["journals"]:
@@ -239,6 +249,7 @@ while True:
                     journal_data = rf["journals"][int(journal_no)]
                     print(journal_data)
                     time.sleep(1)
+                    print("[Info] Press Enter to exit")
                 except:
                     print("[Warning] Wrong input")
                     print("[Info] Press Enter to exit")
@@ -257,6 +268,7 @@ while True:
                 os.system("cls")
             continue
 
+        #------------------- Add journal --------------------
         elif int(input_entries)==2:
             print("[Info] Write Journal data here")
             print("[Info] Press ENTER twice to save")
@@ -285,6 +297,7 @@ while True:
                 os.system("cls")
             continue
 
+        #--------------- Logout -------------------
         elif int(input_entries)==3:
             print("[Info] Logging out ...")
             time.sleep(1)
@@ -293,9 +306,10 @@ while True:
             else:
                 os.system("cls")
             break
-
+        
+        #--------------- Exit option ----------------
         elif int(input_entries)==4:
-            print("[Info] Exiting ...")
+            print(" Exiting ...")
             time.sleep(1)
             if platform_flag==0:
                 os.system("clear")

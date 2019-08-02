@@ -1,3 +1,1 @@
-# If working on linux and getting errors try this:-
-# apt-get install build-essential libssl-dev libffi-dev python3-dev
 cryptography
