@@ -42,5 +42,5 @@ In-App Instructions:-
     -> If a screen appears to be just hanged press enter two-three time to continue
     -> All the other in app instructions will be presented on screen
 
-4. Maximum users allowed are 10 ( As of what i was not sure about)
+4. Maximum users allowed are 10
 5. Maximum journals per user is 50
